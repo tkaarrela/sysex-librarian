@@ -5,9 +5,10 @@
 	<h3 class="text-muted">sysex librarian</h3>
 </div>
 
+<!--
 <div class="jumbotron">
 	<div>{{logMessage}}</div>
-</div>
+</div>-->
 
 <div class="row marketing">
 	<h4>In:</h4>
@@ -19,15 +20,68 @@
 	<p>
         <select ng-model="selectedMidiOutDevice" ng-options="c.name for c in midiOutDevices"></select>
     </p>
-    
-    <h4>Sysex</h4>
-    
+    <hr>
     <p>
-        <input type="text" ng-model="sysex"/>
+        <a class="btn btn-lg btn-success" ng-click="sendSysex()">Play note</a>
     </p>
-    <p>
-        <a class="btn btn-lg btn-success" ng-click="sendSysex()">Send sysex (WIP)</a>
-    </p>
+    <hr>
+    <h4>OPERATOR 1</h4>
+    
+    <div class="control-group">
+        <label class="control-label" for="op1Volume">Volume</label>
+        <div class="controls">
+            <input id="op1Volume" title="OP1 volume" value="volume" type="range" name="op1Volume" min="0" max="99" step="1" ng-model="op1Volume" ng-change="setOp1Volume()"></input> {{op1Volume}}
+        </div>
+    <div>
+
+    <div class="control-group">
+        <label class="control-label" for="op1Detune">Detune</label>
+        <div class="controls">
+            <input id="op1Detune"  title="OP1 detune" value="detune" type="range" name="op1Detune" min="0" max="14" step="1" ng-model="op1Detune" ng-change="setOp1Detune()"></input> {{op1Detune}}
+        </div>
+    <div>
+
+
+    <div class="control-group">
+        
+        <label class="control-label" for="op1Rate1">Rate 1</label>
+        <div class="controls">
+            <input id="op1Rate1" title="OP1 rate" type="range" name="op1Rate1" min="0" max="99" step="1" ng-model="op1Rate1" ng-change="setOp1Rate1()" /> {{op1Rate}}
+        </div>
+
+        
+    <div>
+    
+    <div class="control-group">
+        <label class="control-label" for="op1Rate2">Rate 2</label>
+        <div class="controls">
+            <input id="op1Rate2" title="OP1 rate 2" type="range" name="op1Rate2" min="0" max="99" step="1" ng-model="op1Rate2" ng-change="setOp1Rate2()" /> {{op1Rate2}}
+        </div>
+    <div>
+        
+    <div class="control-group">
+        <label class="control-label" for="op1Rate3">Rate 3</label>
+        <div class="controls">
+            <input id="op1Rate3" title="OP1 rate 3" type="range" name="op1Rate3" min="0" max="99" step="1" ng-model="op1Rate3" ng-change="setOp1Rate3()" /> {{op1Rate3}}
+        </div>
+    <div>
+        
+    <div class="control-group">
+        <label class="control-label" for="op1Rate3">Rate 4</label>
+        <div class="controls">
+            <input id="op1Rate4" title="OP1 rate 4" type="range" name="op1Rate4" min="0" max="99" step="1" ng-model="op1Rate4" ng-change="setOp1Rate4()" /> {{op1Rate4}}
+        </div>
+    <div>
+
+
+    <div class="control-group">
+        <label class="control-label" for="op1Ratio">Ratio</label>
+        <div class="controls">
+            <input id="op1Ratio" title="OP1 ratio" type="range" name="op1Ratio" min="0" max="31" step="1" ng-model="op1Freq" ng-change="setOp1Freq()"/> {{op1Freq}}
+        </div>
+    <div>
+        
+    
 
 </div>
 
