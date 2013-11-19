@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('sysexLibrarianApp')
+angular.module('sysexLibrarianApp',['dx7-constants'])
   .controller('MainCtrl', function ($scope) {
     $scope.op1Freq = 0;
     $scope.op1Rate1 = 0;
@@ -81,37 +81,33 @@ angular.module('sysexLibrarianApp')
     }
     
     $scope.setOp1Volume = function(){
-        $scope.selectedMidiOutDevice.send(  [ 0xf0, 0x43, 0x10, 0x00, 0x79, $scope.op1Volume, 0xf7 ] );
-        
+        $scope.selectedMidiOutDevice.send(  [ 0xf0, 0x43, 0x10, 0x00, OP1.OUTPUT_LEVEL, $scope.op1Volume, 0xf7 ] );
     }
     
     $scope.setOp1Detune = function(){
-        $scope.selectedMidiOutDevice.send(  [ 0xf0, 0x43, 0x10, 0x00, 0x7d, $scope.op1Detune , 0xf7 ] );
+        $scope.selectedMidiOutDevice.send(  [ 0xf0, 0x43, 0x10, 0x00, OP1.DETUNE, $scope.op1Detune , 0xf7 ] );
     }
     
     $scope.setOp1Rate1 = function(){
-        $scope.selectedMidiOutDevice.send(  [ 0xF0,  0x43,  0x10,  0x00,  0x69, $scope.op1Rate1, 0xF7 ] );
+        $scope.selectedMidiOutDevice.send(  [ 0xF0,  0x43,  0x10,  0x00,  OP1.RATE_1, $scope.op1Rate1, 0xF7 ] );
     }
     
     $scope.setOp1Rate2 = function(){
-        $scope.selectedMidiOutDevice.send(  [ 0xF0,  0x43,  0x10,  0x00,  0x6A, $scope.op1Rate2, 0xF7 ] );
+        $scope.selectedMidiOutDevice.send(  [ 0xF0,  0x43,  0x10,  0x00,  OP1.RATE_2, $scope.op1Rate2, 0xF7 ] );
     }
     
     $scope.setOp1Rate3 = function(){
-        $scope.selectedMidiOutDevice.send(  [ 0xF0,  0x43,  0x10,  0x00,  0x6B, $scope.op1Rate3, 0xF7 ] );
+        $scope.selectedMidiOutDevice.send(  [ 0xF0,  0x43,  0x10,  0x00,  OP1.RATE_3, $scope.op1Rate3, 0xF7 ] );
     }
     
     $scope.setOp1Rate4 = function(){
-        $scope.selectedMidiOutDevice.send(  [ 0xF0,  0x43,  0x10,  0x00,  0x6C, $scope.op1Rate4, 0xF7 ] );
+        $scope.selectedMidiOutDevice.send(  [ 0xF0,  0x43,  0x10,  0x00,  OP1.RATE_4, $scope.op1Rate4, 0xF7 ] );
     }
     
     $scope.setOp1Freq = function(){
-        $scope.selectedMidiOutDevice.send(  [ 0xf0, 0x43, 0x10, 0x00, 0x7B, $scope.op1Freq , 0xf7 ] );
+        $scope.selectedMidiOutDevice.send(  [ 0xf0, 0x43, 0x10, 0x00, OP1.FR_COARSE, $scope.op1Freq , 0xf7 ] );
     }
-    
-    
-    
-    
+
     //init
     $scope.getMidiDevices();
       
