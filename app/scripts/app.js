@@ -4,7 +4,8 @@ angular.module('sysexLibrarianApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
-  'ngRoute'
+  'ngRoute',
+  'dx7-sysex'
 ])
   .config(function ($routeProvider) {
     $routeProvider

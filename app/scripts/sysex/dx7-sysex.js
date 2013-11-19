@@ -1,8 +1,7 @@
 'use strict';
 
-angular.module('dx7-constants',[]).
-    value('OP1', {
-
+angular.module('dx7-sysex',[]).
+    constant('OP1', {
         MODE: 0x7a,
         FR_COARSE: 0x7b,
         FR_FINE: 0x7c,
@@ -25,6 +24,6 @@ angular.module('dx7-constants',[]).
         VEL_SENS: 0x78,
         OUTPUT_LEVEL: 0x79
     }).
-    value('OP_2', {
+    constant('OP2', {
         MODE: 0x65
     });

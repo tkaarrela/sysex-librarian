@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('sysexLibrarianApp',['dx7-constants'])
-  .controller('MainCtrl', function ($scope) {
+angular.module('sysexLibrarianApp')
+  .controller('MainCtrl', function ($scope, OP1) {
     $scope.op1Freq = 0;
     $scope.op1Rate1 = 0;
     $scope.op1Rate2 = 0;
