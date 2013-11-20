@@ -5,6 +5,7 @@ angular.module('sysexLibrarianApp', [
   'ngResource',
   'ngSanitize',
   'ngRoute',
+  'dx7-operator',
   'midi-services',
   'common-sysex',
   'dx7-sysex',

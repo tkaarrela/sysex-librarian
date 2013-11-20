@@ -3,7 +3,10 @@
 angular.module('dx7-sysex',[]).
     constant('DX7', {
         MANUFACTURER: 0x43,
+        OP_ON: 0x7f,
+        OP_OFF: 0x00,
         OP1: {
+            ON_OFF: 0x00,
             MODE: 0x7a,
             FR_COARSE: 0x7b,
             FR_FINE: 0x7c,
@@ -27,6 +30,7 @@ angular.module('dx7-sysex',[]).
             OUTPUT_LEVEL: 0x79
         },
         OP2: {
+            ON_OFF: 0x01,
             MODE: 0x65,
             FR_COARSE: 0x66,
             FR_FINE: 0x67,
