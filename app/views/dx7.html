@@ -7,6 +7,8 @@
 
 <tabs>
     <pane title="Operator 1">
+        <sl-slider title="Otsikko" modelId="dx7.op1.volume" id="op1Volume2" min="0" max="127" step="1" ng-model="dx7.op1.volume" ng-change="setOp1Volume()"></sl-slider>
+
         <div class="checkbox">
             <label>
                 <input type="checkbox" ng-model="op1.power" ng-change="setOp1OnOff()"><b>ON</b>
@@ -15,14 +17,14 @@
 
         <div class="checkbox">
             <label>
-                <input type="checkbox" ng-model="op1.freqMode" ng-change="setOp1FreqMode()"><b>Frequency mode ratio</b>
+                <input type="checkbox" ng-model="op1.frequencyMode" ng-change="setOp1FreqMode()"><b>Frequency mode ratio</b>
             </label>
         </div>
 
         <div class="control-group">
             <label class="control-label" for="op1Volume">Volume</label>
             <div class="controls">
-                <input id="op1Volume" title="OP1 volume" value="volume" type="range" name="op1Volume" min="0" max="99" step="1" ng-model="op1.volume" ng-change="setOp1Volume()"/> {{op1.volume}}
+                <input id="op1Volume" title="OP1 volume" value="volume" type="range" name="op1Volume" min="0" max="99" step="1" ng-model="dx7.op1.volume" ng-change="setOp1Volume()"/> {{dx7.op1.volume}}
             </div>
         </div>
 
@@ -79,6 +81,12 @@
     </pane>
     <pane title="Operator 4">
         Operator 4 sliders
+    </pane>
+    <pane title="Operator 5">
+        Operator 5 sliders
+    </pane>
+    <pane title="Operator 6">
+        Operator 6 sliders
     </pane>
 
 </tabs>

@@ -45,4 +45,24 @@ angular.module('components', []).
                     '</div>',
             replace: true
         };
-    })
+    }).
+    directive('slSlider', function(){
+        return {
+            restrict: 'E',
+            require: ['^ngModel','^ngChange'],
+            scope: {
+                title: '@',
+                ngModel: '=',
+                ngChange: '&',
+                bindAttr: '='
+            },
+            template:
+                '<div class="control-group">' +
+                    '<label class="control-label" for="{{id}}">{{title}}</label>' +
+                    '<div class="controls">' +
+                    '<input ng-model="ngModel" ng-change="ngChange" id="{{id}}" title="{{title}}" type="range" name="{{id}}" min="{{min}}" max="{{max}}" step="{{step}}" /> {{ngModel}}' +
+                    '</div>' +
+                    '</div>',
+            replace: true
+        };
+    });

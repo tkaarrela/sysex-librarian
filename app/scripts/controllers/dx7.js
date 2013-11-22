@@ -1,18 +1,9 @@
 'use strict';
 
 angular.module('sysexLibrarianApp')
-  .controller('Dx7Ctrl', function ($scope, SYSEX, DX7, MidiService, Operator) {
-    $scope.op1 = new Operator(1);
-    $scope.op1On = true;
-    $scope.op1FreqMode = true;
-    $scope.op1Freq = 0;
-    $scope.op1Rate1 = 0;
-    $scope.op1Rate2 = 0;
-    $scope.op1Rate3 = 0;
-    $scope.op1Rate4 = 0;
-    $scope.op1Detune = 0;
-    $scope.op1Volume = 0;
-      
+  .controller('Dx7Ctrl', function ($scope, SYSEX, DX7SYSEX, MidiService, Dx7) {
+    $scope.dx7 = new Dx7();
+
     $scope.midiInDevices = undefined;
     $scope.midiOutDevices = undefined;
     
@@ -57,8 +48,8 @@ angular.module('sysexLibrarianApp')
     };
       
     $scope.getMidiDevices = function () {
-
-        console.log($scope.op1);
+        console.log($scope.dx7);
+        console.log($scope.dx7.op1);
         navigator.requestMIDIAccess().then($scope.success, $scope.failure);
     };
       
@@ -87,62 +78,58 @@ angular.module('sysexLibrarianApp')
 
     $scope.setOp1FreqMode = function(){
         var newControlValue;
-        if($scope.op1.frequencyMode===true){
-            newControlValue = DX7.OP_OFF;
-            $scope.op1.frequencyMode=false;
+        if($scope.dx7.op1.frequencyMode===true){
+            newControlValue = DX7SYSEX.OP_ON;
         }else{
-            newControlValue = DX7.OP_ON;
-            $scope.op1.frequencyMode=true;
+            newControlValue = DX7SYSEX.OP_OFF;
         }
-        var sysEx =  [ SYSEX.START, DX7.MANUFACTURER, 0x10, 0x00, DX7.OP1.MODE, $scope.op1.getFrequencyMode(), SYSEX.END ];
+        var sysEx =  [ SYSEX.START, DX7SYSEX.MANUFACTURER, 0x10, 0x00, DX7SYSEX.OP1.MODE, newControlValue, SYSEX.END ];
         MidiService.send($scope.selectedMidiOutDevice, sysEx);
     };
 
     $scope.setOp1OnOff = function(){
         var newControlValue;
-        if($scope.op1.power===true){
-            newControlValue = DX7.OP_OFF;
-            $scope.op1.power=false;
+        if($scope.dx7.op1.power===true){
+            newControlValue = DX7SYSEX.OP_ON;
         }else{
-            newControlValue = DX7.OP_ON;
-            $scope.op1.power=true;
+            newControlValue = DX7SYSEX.OP_OFF;
         }
-        var sysEx =  [ SYSEX.START, DX7.MANUFACTURER, 0x10, 0x00, DX7.OP1.ON_OFF, newControlValue, SYSEX.END ];
+        var sysEx =  [ SYSEX.START, DX7SYSEX.MANUFACTURER, 0x10, 0x00, DX7SYSEX.OP1.ON_OFF, newControlValue, SYSEX.END ];
         MidiService.send($scope.selectedMidiOutDevice, sysEx);
     };
 
     $scope.setOp1Volume = function(){
-        var sysEx =  [ SYSEX.START, DX7.MANUFACTURER, 0x10, 0x00, DX7.OP1.OUTPUT_LEVEL, $scope.op1.getVolume(), SYSEX.END ];
+        var sysEx =  [ SYSEX.START, DX7SYSEX.MANUFACTURER, 0x10, 0x00, DX7SYSEX.OP1.OUTPUT_LEVEL, $scope.dx7.op1.getVolume(), SYSEX.END ];
         MidiService.send($scope.selectedMidiOutDevice, sysEx);
     };
     
     $scope.setOp1Detune = function(){
-        var sysEx = [ SYSEX.START, DX7.MANUFACTURER, 0x10, 0x00, DX7.OP1.DETUNE, $scope.op1.getDetune() , SYSEX.END ]
+        var sysEx = [ SYSEX.START, DX7SYSEX.MANUFACTURER, 0x10, 0x00, DX7SYSEX.OP1.DETUNE, $scope.dx7.op1.getDetune() , SYSEX.END ]
         MidiService.send($scope.selectedMidiOutDevice, sysEx);
     };
     
     $scope.setOp1Rate1 = function(){
-        var sysEx = [ SYSEX.START,  DX7.MANUFACTURER,  0x10,  0x00,  DX7.OP1.RATE_1, $scope.op1.getRate1(), SYSEX.END ]
+        var sysEx = [ SYSEX.START,  DX7SYSEX.MANUFACTURER,  0x10,  0x00,  DX7SYSEX.OP1.RATE_1, $scope.dx7.op1.getRate1(), SYSEX.END ]
         MidiService.send($scope.selectedMidiOutDevice, sysEx);
     };
     
     $scope.setOp1Rate2 = function(){
-        var sysEx = [ SYSEX.START,  DX7.MANUFACTURER,  0x10,  0x00,  DX7.OP1.RATE_2, $scope.op1.getRate2(), SYSEX.END ]
+        var sysEx = [ SYSEX.START,  DX7SYSEX.MANUFACTURER,  0x10,  0x00,  DX7SYSEX.OP1.RATE_2, $scope.dx7.op1.getRate2(), SYSEX.END ]
         MidiService.send($scope.selectedMidiOutDevice, sysEx);
     };
     
     $scope.setOp1Rate3 = function(){
-        var sysEx = [ SYSEX.START,  DX7.MANUFACTURER,  0x10,  0x00,  DX7.OP1.RATE_3, $scope.op1.getRate3(), SYSEX.END ]
+        var sysEx = [ SYSEX.START,  DX7SYSEX.MANUFACTURER,  0x10,  0x00,  DX7SYSEX.OP1.RATE_3, $scope.dx7.op1.getRate3(), SYSEX.END ]
         MidiService.send($scope.selectedMidiOutDevice, sysEx);
     };
     
     $scope.setOp1Rate4 = function(){
-        var sysEx = [ SYSEX.START,  DX7.MANUFACTURER,  0x10,  0x00,  DX7.OP1.RATE_4, $scope.op1.getRate4(), SYSEX.END ]
+        var sysEx = [ SYSEX.START,  DX7SYSEX.MANUFACTURER,  0x10,  0x00,  DX7SYSEX.OP1.RATE_4, $scope.dx7.op1.getRate4(), SYSEX.END ]
         MidiService.send($scope.selectedMidiOutDevice, sysEx);
     };
     
     $scope.setOp1Freq = function(){
-        var sysEx = [ SYSEX.START, DX7.MANUFACTURER, 0x10, 0x00, DX7.OP1.FR_COARSE, $scope.op1.getFrCoarse() , SYSEX.END ]
+        var sysEx = [ SYSEX.START, DX7SYSEX.MANUFACTURER, 0x10, 0x00, DX7SYSEX.OP1.FR_COARSE, $scope.dx7.op1.getFrCoarse() , SYSEX.END ]
         MidiService.send($scope.selectedMidiOutDevice, sysEx);
     };
 

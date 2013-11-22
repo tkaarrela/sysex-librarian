@@ -1,7 +1,5 @@
-angular.module('dx7-operator',[]).
-    factory(
-        "Operator",
-        function() {
+angular.module('dx7-operator-proto',[]).
+    factory("Operator", function() {
 
             // Define the constructor function.
             function Operator(id) {

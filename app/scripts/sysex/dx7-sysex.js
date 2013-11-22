@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('dx7-sysex',[]).
-    constant('DX7', {
+    constant('DX7SYSEX', {
         MANUFACTURER: 0x43,
         OP_ON: 0x7f,
         OP_OFF: 0x00,
