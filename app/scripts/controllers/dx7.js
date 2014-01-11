@@ -97,8 +97,9 @@ angular.module('sysexLibrarianApp')
         var sysEx =  [ SYSEX.START, DX7SYSEX.MANUFACTURER, 0x10, 0x00, DX7SYSEX.OP1.ON_OFF, newControlValue, SYSEX.END ];
         MidiService.send($scope.selectedMidiOutDevice, sysEx);
     };
-
-    $scope.setOp1Volume = function(){
+      
+    $scope.setOp1Volume = function(value){
+        $scope.dx7.op1.setVolume(value);
         var sysEx =  [ SYSEX.START, DX7SYSEX.MANUFACTURER, 0x10, 0x00, DX7SYSEX.OP1.OUTPUT_LEVEL, $scope.dx7.op1.getVolume(), SYSEX.END ];
         MidiService.send($scope.selectedMidiOutDevice, sysEx);
     };
@@ -132,7 +133,7 @@ angular.module('sysexLibrarianApp')
         var sysEx = [ SYSEX.START, DX7SYSEX.MANUFACTURER, 0x10, 0x00, DX7SYSEX.OP1.FR_COARSE, $scope.dx7.op1.getFrCoarse() , SYSEX.END ]
         MidiService.send($scope.selectedMidiOutDevice, sysEx);
     };
-
+      
     //init
     $scope.getMidiDevices();
       

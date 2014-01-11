@@ -78,6 +78,10 @@ angular.module('dx7-operator-proto',[]).
 
                 getVolume: function(){
                     return this.volume;
+                },
+                
+                setVolume: function(value){
+                    this.volume = value;
                 }
 
             };

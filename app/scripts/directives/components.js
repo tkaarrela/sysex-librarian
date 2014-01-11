@@ -49,20 +49,32 @@ angular.module('components', []).
     directive('slSlider', function(){
         return {
             restrict: 'E',
-            require: ['^ngModel','^ngChange'],
+            replace: true,
             scope: {
+                sendValueCallback: '=',
                 title: '@',
-                ngModel: '=',
-                ngChange: '&',
-                bindAttr: '='
+                id: '@',
+                min: '@',
+                max: '@',
+                step: '@'
             },
+            controller: controller,
             template:
                 '<div class="control-group">' +
                     '<label class="control-label" for="{{id}}">{{title}}</label>' +
                     '<div class="controls">' +
-                    '<input ng-model="ngModel" ng-change="ngChange" id="{{id}}" title="{{title}}" type="range" name="{{id}}" min="{{min}}" max="{{max}}" step="{{step}}" /> {{ngModel}}' +
+                    '<input ng-model="sliderValue" ng-change="sendValue()" id="{{id}}" title="{{title}}" type="range" name="{{id}}" min="{{min}}" max="{{max}}" step="{{step}}" /> {{sliderValue}}' +
                     '</div>' +
-                    '</div>',
-            replace: true
-        };
+                    '</div>'
+        }
+        
+        function controller($scope) {
+            $scope.sendValue = sendValue
+            
+            function sendValue(){
+                $scope.sendValueCallback($scope.sliderValue)
+            }
+
+           
+        }
     });

@@ -7,8 +7,9 @@
 
 <tabs>
     <pane title="Operator 1">
-        <sl-slider title="Otsikko" modelId="dx7.op1.volume" id="op1Volume2" min="0" max="127" step="1" ng-model="dx7.op1.volume" ng-change="setOp1Volume()"></sl-slider>
-
+        
+        
+        
         <div class="checkbox">
             <label>
                 <input type="checkbox" ng-model="op1.power" ng-change="setOp1OnOff()"><b>ON</b>
@@ -20,14 +21,9 @@
                 <input type="checkbox" ng-model="op1.frequencyMode" ng-change="setOp1FreqMode()"><b>Frequency mode ratio</b>
             </label>
         </div>
-
-        <div class="control-group">
-            <label class="control-label" for="op1Volume">Volume</label>
-            <div class="controls">
-                <input id="op1Volume" title="OP1 volume" value="volume" type="range" name="op1Volume" min="0" max="99" step="1" ng-model="dx7.op1.volume" ng-change="setOp1Volume()"/> {{dx7.op1.volume}}
-            </div>
-        </div>
-
+        
+        <sl-slider title="Volume" send-value-callback="setOp1Volume" id="op1Volume" min="0" max="127" step="1"></sl-slider>
+        
         <div class="control-group">
             <label class="control-label" for="op1Detune">Detune</label>
             <div class="controls">
