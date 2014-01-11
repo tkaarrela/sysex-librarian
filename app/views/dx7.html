@@ -24,50 +24,16 @@
         
         <sl-slider title="Volume" send-value-callback="setOp1Volume" id="op1Volume" min="0" max="127" step="1"></sl-slider>
         
-        <div class="control-group">
-            <label class="control-label" for="op1Detune">Detune</label>
-            <div class="controls">
-                <input id="op1Detune"  title="OP1 detune" value="detune" type="range" name="op1Detune" min="0" max="14" step="1" ng-model="op1.detune" ng-change="setOp1Detune()"/>{{op1.detune}}
-            </div>
-        </div>
+        <sl-slider title="Detune" send-value-callback="setOp1Detune" id="op1Detune" min="0" max="14" step="1"></sl-slider>
+        
+        <sl-slider title="Rate 1" send-value-callback="setOp1Rate1" id="op1Rate1" min="0" max="99" step="1"></sl-slider>
+        
+        <sl-slider title="Rate 2" send-value-callback="setOp1Rate2" id="op1Rate2" min="0" max="99" step="1"></sl-slider>
+        
+        <sl-slider title="Rate 3" send-value-callback="setOp1Rate3" id="op1Rate3" min="0" max="99" step="1"></sl-slider>
+        
+        <sl-slider title="Rate 4" send-value-callback="setOp1Rate4" id="op1Rate4" min="0" max="99" step="1"></sl-slider>
 
-
-        <div class="control-group">
-
-            <label class="control-label" for="op1Rate1">Rate 1</label>
-            <div class="controls">
-                <input id="op1Rate1" title="OP1 rate" type="range" name="op1Rate1" min="0" max="99" step="1" ng-model="op1.rate1" ng-change="setOp1Rate1()" /> {{op1.rate1}}
-            </div>
-        </div>
-
-        <div class="control-group">
-            <label class="control-label" for="op1Rate2">Rate 2</label>
-            <div class="controls">
-                <input id="op1Rate2" title="OP1 rate 2" type="range" name="op1Rate2" min="0" max="99" step="1" ng-model="op1.rate2" ng-change="setOp1Rate2()" /> {{op1.rate2}}
-            </div>
-        </div>
-
-        <div class="control-group">
-            <label class="control-label" for="op1Rate3">Rate 3</label>
-            <div class="controls">
-                <input id="op1Rate3" title="OP1 rate 3" type="range" name="op1Rate3" min="0" max="99" step="1" ng-model="op1.rate3" ng-change="setOp1Rate3()" /> {{op1.rate3}}
-            </div>
-        </div>
-
-        <div class="control-group">
-            <label class="control-label" for="op1Rate3">Rate 4</label>
-            <div class="controls">
-                <input id="op1Rate4" title="OP1 rate 4" type="range" name="op1Rate4" min="0" max="99" step="1" ng-model="op1.rate4" ng-change="setOp1Rate4()" /> {{op1.rate4}}
-            </div>
-        </div>
-
-
-        <div class="control-group">
-            <label class="control-label" for="op1Ratio">Ratio</label>
-            <div class="controls">
-                <input id="op1Ratio" title="OP1 ratio" type="range" name="op1Ratio" min="0" max="31" step="1" ng-model="op1.crFreq" ng-change="setOp1Freq()"/> {{op1.crFreq}}
-            </div>
-         </div>
     </pane>
     <pane title="Operator 2">
         Operator 2 sliders

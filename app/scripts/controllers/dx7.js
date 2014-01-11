@@ -104,32 +104,38 @@ angular.module('sysexLibrarianApp')
         MidiService.send($scope.selectedMidiOutDevice, sysEx);
     };
     
-    $scope.setOp1Detune = function(){
+    $scope.setOp1Detune = function(value){
+         $scope.dx7.op1.setDetune(value);
         var sysEx = [ SYSEX.START, DX7SYSEX.MANUFACTURER, 0x10, 0x00, DX7SYSEX.OP1.DETUNE, $scope.dx7.op1.getDetune() , SYSEX.END ]
         MidiService.send($scope.selectedMidiOutDevice, sysEx);
     };
     
-    $scope.setOp1Rate1 = function(){
+    $scope.setOp1Rate1 = function(value){
+        $scope.dx7.op1.setRate1(value);
         var sysEx = [ SYSEX.START,  DX7SYSEX.MANUFACTURER,  0x10,  0x00,  DX7SYSEX.OP1.RATE_1, $scope.dx7.op1.getRate1(), SYSEX.END ]
         MidiService.send($scope.selectedMidiOutDevice, sysEx);
     };
     
-    $scope.setOp1Rate2 = function(){
+    $scope.setOp1Rate2 = function(value){
+        $scope.dx7.op1.setRate2(value);
         var sysEx = [ SYSEX.START,  DX7SYSEX.MANUFACTURER,  0x10,  0x00,  DX7SYSEX.OP1.RATE_2, $scope.dx7.op1.getRate2(), SYSEX.END ]
         MidiService.send($scope.selectedMidiOutDevice, sysEx);
     };
     
-    $scope.setOp1Rate3 = function(){
+    $scope.setOp1Rate3 = function(value){
+        $scope.dx7.op1.setRate3(value);
         var sysEx = [ SYSEX.START,  DX7SYSEX.MANUFACTURER,  0x10,  0x00,  DX7SYSEX.OP1.RATE_3, $scope.dx7.op1.getRate3(), SYSEX.END ]
         MidiService.send($scope.selectedMidiOutDevice, sysEx);
     };
     
-    $scope.setOp1Rate4 = function(){
+    $scope.setOp1Rate4 = function(value){
+        $scope.dx7.op1.setRate4(value);
         var sysEx = [ SYSEX.START,  DX7SYSEX.MANUFACTURER,  0x10,  0x00,  DX7SYSEX.OP1.RATE_4, $scope.dx7.op1.getRate4(), SYSEX.END ]
         MidiService.send($scope.selectedMidiOutDevice, sysEx);
     };
     
-    $scope.setOp1Freq = function(){
+    $scope.setOp1Freq = function(value){
+        $scope.dx7.op1.setFrCoarse(value);
         var sysEx = [ SYSEX.START, DX7SYSEX.MANUFACTURER, 0x10, 0x00, DX7SYSEX.OP1.FR_COARSE, $scope.dx7.op1.getFrCoarse() , SYSEX.END ]
         MidiService.send($scope.selectedMidiOutDevice, sysEx);
     };

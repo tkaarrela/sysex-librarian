@@ -31,49 +31,93 @@ angular.module('dx7-operator-proto',[]).
                 getPower: function() {
                     return this.power;
                 },
+                
+                setPower: function(value) {
+                    this.power = value;
+                },
 
                 getFrequencyMode: function(){
                     return this.frequencyMode;
                 },
-
+                
                 getRate1: function(){
                     return this.rate1;
+                },
+                
+                setRate1: function(value){
+                    this.rate1 = value;
                 },
 
                 getRate2: function(){
                     return this.rate2;
                 },
+                
+                setRate2: function(value){
+                    this.rate2 = value;
+                },
 
                 getRate3: function(){
                     return this.rate3;
+                },
+                
+                setRate3: function(value){
+                    this.rate3 = value;
                 },
 
                 getRate4: function(){
                     return this.rate4;
                 },
+                
+                setRate4: function(value){
+                    this.rate4 = value;
+                },
 
                 getLevel1: function(){
                     return this.level1;
+                },
+                
+                setLevel1: function(value){
+                    this.level1 = value;
                 },
 
                 getLevel2: function(){
                     return this.level2;
                 },
+                
+                setLevel2: function(value){
+                    this.level2 = value;
+                },
 
                 getLevel3: function(){
                     return this.level3;
+                },
+                
+                setLevel3: function(value){
+                    this.level3 = value;
                 },
 
                 getLevel4: function(){
                     return this.level4;
                 },
+                
+                setLevel4: function(value){
+                    this.level4 = value;
+                },
 
                 getFrCoarse: function(){
                     return this.frCoarse;
                 },
+                
+                setFrCoarse: function(value){
+                    this.frCoarse = value;
+                },
 
                 getDetune: function(){
                     return this.detune;
+                },
+                
+                setDetune: function(value){
+                    this.detune = value;
                 },
 
                 getVolume: function(){
